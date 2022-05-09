@@ -1,0 +1,11 @@
+
+node_modules/
+.shadow-cljs
+/dist/js/
+/dist/css/
+*.*~
+yarn.lock
+src-tauri/target
+
+.#.gitignore
+.#*.*
