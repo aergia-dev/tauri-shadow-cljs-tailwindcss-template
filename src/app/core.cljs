@@ -1,15 +1,14 @@
 (ns app.core
   (:require [reagent.dom :as r.dom]
             [re-frame.core :as rf :refer [dispatch dispatch-sync]]
+            [app.views :as view]
             [cognitect.transit :as transit]))
 
 (dispatch-sync [:init-db])  
 
-(defn view-sample []
-  [:div "view sample"]
-  )
+
 (defn render []
-  (r.dom/render [view-sample]
+  (r.dom/render [view/default-view]
                 (js/document.getElementById "app")))
 
 (defn ^:export init []
