@@ -1,1 +1,2 @@
-# tauri + shadow-cljs + tailwindcss default project
+# for data team - etc01 - copy files into server
+

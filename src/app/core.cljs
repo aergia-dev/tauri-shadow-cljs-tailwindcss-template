@@ -2,10 +2,12 @@
   (:require [reagent.dom :as r.dom]
             [re-frame.core :as rf :refer [dispatch dispatch-sync]]
             [app.views :as view]
+            [app.db]
+            [app.subs]
+            [app.events]
             [cognitect.transit :as transit]))
 
 (dispatch-sync [:init-db])  
-
 
 (defn render []
   (r.dom/render [view/default-view]

@@ -1,0 +1,18 @@
+[cmd]
+mount = "net use #drive #net-path"
+unmount = "net use #drive /delete"
+zip = "7zip"
+make-txt-file = "type null >> #filename.txt"
+
+[variable]
+drive = "z:"
+net-path = "\\\\192.168.1.5\\PublicData"
+
+[rules]
+dest = "#src-filename"
+dir-filter = "_(\\w+)_\\w+.box"
+sub-dir-1 = ["#drive/#src-filename/Box", 
+		     "#drive/#src-filename/KITTI", 
+		     "#drive/#src-filename/Bin"]
+
+sub-dir-2 = "#drive/#src-filename/Box/#filtered-filename"
