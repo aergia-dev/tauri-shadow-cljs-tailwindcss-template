@@ -1,20 +1,23 @@
 (ns app.core
   (:require [reagent.dom :as r.dom]
+            [reagent.core :as r]
+            ["react-dom/client" :refer [createRoot]]
             [re-frame.core :as rf :refer [dispatch dispatch-sync]]
+            [app.views :as v]
+            [app.events]
+            [app.subs]
+            [app.db]
             [cognitect.transit :as transit]))
 
-(dispatch-sync [:init-db])  
+(dispatch-sync [:init-db])
 
-(defn view-sample []
-  [:div "view sample"]
-  )
+(defonce root (createRoot (js/document.getElementById "app")))
+
 (defn render []
-  (r.dom/render [view-sample]
-                (js/document.getElementById "app")))
+  (.render root (r/as-element [v/views])))
 
 (defn ^:export init []
   (render))
-
 
 (defn ^:dev/after-load clear-cache-and-render!
   []
