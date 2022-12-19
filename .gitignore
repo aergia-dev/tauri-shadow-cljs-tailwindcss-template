@@ -9,3 +9,8 @@ src-tauri/target
 
 .#.gitignore
 .#*.*
+
+.clj-kondo/
+yarn-error.log
+.lsp/
+Cargo.lock
